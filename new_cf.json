@@ -1,0 +1,38 @@
+{
+
+  "AWSTemplateFormatVersion" : "2010-09-09",
+
+  "Description" : "A simple stack that launches an instance.",
+
+  "Resources" : {
+
+	"Ec2Instance" : {
+
+	"Type" : "AWS::EC2::Instance",
+
+	"Properties" : {
+
+	"ImageId" : "ami-60b6c60a",
+
+	"InstanceType": "t2.micro",
+
+	"KeyName" : "aws_test" ,
+
+	"Tags": [ {"Key": "dev", "Value": "app"} ],
+
+	"UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
+		"#!/bin/bash\n",
+		"yum update -y\n",
+		"mkdir /git_repo\n",
+		"yum install -y puppet\n"
+		"cd /git_repo;/usr/bin/git clone https://github.com/pythonstuff/cf.git\n"
+		"cd /git_repo/cf;/usr/bin/puppet --modulepath ./modules manifests/site.pp\n"
+		"rm -rf /git_repo/cf\n"
+
+		]]}}
+      }
+    }
+
+  }
+
+}
