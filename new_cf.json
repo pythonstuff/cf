@@ -18,6 +18,8 @@
 
 	"KeyName" : "aws_test" ,
 
+	"IamInstanceProfile" : "SSM",
+
 	"Tags": [ {"Key": "dev", "Value": "app"} ],
 
 	"UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
