@@ -24,11 +24,10 @@
 		"#!/bin/bash\n",
 		"yum update -y\n",
 		"mkdir /git_repo\n",
-		"yum install -y puppet\n"
-		"cd /git_repo;/usr/bin/git clone https://github.com/pythonstuff/cf.git\n"
-		"cd /git_repo/cf;/usr/bin/puppet --modulepath ./modules manifests/site.pp\n"
+		"yum install -y puppet\n",
+		"cd /git_repo;/usr/bin/git clone https://github.com/pythonstuff/cf.git\n",
+		"cd /git_repo/cf;/usr/bin/puppet --modulepath ./modules manifests/site.pp\n",
 		"rm -rf /git_repo/cf\n"
-
 		]]}}
       }
     }
