@@ -25,6 +25,9 @@
 	"UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
 		"#!/bin/bash\n",
 		"yum update -y\n",
+		"cd /tmp;curl https://amazon-ssm-us-east-1.s3.amazonaws.com/latest/linux_amd64/amazon-ssm-agent.rpm -o amazon-ssm-agent.rpm\n",
+		"yum install -y amazon-ssm-agent.rpm\n",
+		"rm /tmp/amazon-ssm-agent.rpm\n",
 		"mkdir /git_repo\n",
 		"yum install -y puppet\n",
 		"yum install -y git\n",
